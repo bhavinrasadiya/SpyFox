@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Web </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content>
+  <div *ngIf="!cameraService.isImageCaptured">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="image-col">
+          <ion-img src="assets/web.jpg"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="label-col">
+          <ion-label>We will give you matching web results.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-img [src]="imageData" class="webimg" *ngIf="visionData.webDetection"> </ion-img>
+  <span *ngIf="visionData.webDetection">
+    <ion-segment [(ngModel)]="web" color="secondary">
+
+
+      <ion-segment-button value="webEntity">
+        <ion-icon name="funnel"></ion-icon>
+      </ion-segment-button>
+
+      <ion-segment-button value="sites">
+        <ion-icon name="cloudy"></ion-icon>
+      </ion-segment-button>
+
+    </ion-segment>
+
+    <div [ngSwitch]="web">
+
+      <ion-list *ngSwitchCase="'sites'">
+        <ion-item *ngFor="let link of visionData.webDetection.visuallySimilarImages">
+          <a href="{{link.url}}">{{link.url}}</a>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchDefault>
+        <span *ngFor="let label of visionData.webDetection.webEntities">
+          <ion-item *ngIf="label.description">
+            <ion-label>
+              <p class="weblabel">{{label.description}}</p>
+            </ion-label>
+          </ion-item>
+        </span>
+      </ion-list>
+
+    </div>
+  </span>
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" size="small">
+    <ion-fab-button>
+      <ion-icon name="image"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="tertiary" (click)="captureImage()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" (click)="browseImage()">
+        <ion-icon name="folder"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> -->
+</ion-content>

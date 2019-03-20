@@ -1,0 +1,58 @@
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="close-row">
+      <ion-col>
+        <ion-icon class="close" name="close" (click)="dismissModal()" float-right></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row padding>
+      <ion-col>
+        <ion-img src="assets/logo.png" ></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-segment (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="login" [checked]="auth === 'login'">
+          <ion-label>Login</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="signup" [checked]="auth === 'signup'">
+          <ion-label>Signup</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    <ion-row padding >
+      <ion-col>
+          <div *ngIf="auth === 'login'">
+              <form [formGroup]="loginForm">
+                <ion-list>
+                  <ion-item>
+                    <ion-input placeholder="Mobile Number" formControlName="mobile" type="number"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input placeholder="Password" formControlName="password" type="password"></ion-input>
+                  </ion-item><br>
+                  <ion-button color="primary" expand="block" (click)="doLogin()">Login</ion-button>
+                </ion-list>
+              </form>
+            </div>
+        
+            <div *ngIf="auth === 'signup'">
+              <form [formGroup]="signupForm">
+                <ion-list>
+                  <ion-item>
+                    <ion-input placeholder="Mobile Number" type="number" formControlName="mobile"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input placeholder="Full Name" type="text" formControlName="name"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-input placeholder="Password" type="password" formControlName="password"></ion-input>
+                  </ion-item><br>
+                  <ion-button color="success" expand="block" (click)="doSignup()">Signup</ion-button>
+                </ion-list>
+              </form>
+            </div> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Text </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div *ngIf="!cameraService.isImageCaptured || !visionData.textAnnotations">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="image-col">
+              <ion-img src="assets/text.png"></ion-img>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="label-col">
+              <ion-label>App will give you text from captured image.</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+  <ion-img  *ngIf="visionData.textAnnotations" [src]="imageData" class="textimg" id="sourceImage"></ion-img>
+  <ion-card *ngIf="visionData.textAnnotations">
+
+    <ion-card-content>
+      
+      <ion-card-title> Image Text </ion-card-title>
+      <p>
+          {{visionData.textAnnotations[0].description}}
+      </p>
+    </ion-card-content>
+
+   </ion-card>
+
+
+<!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" size="small">
+  <ion-fab-button>
+    <ion-icon name="image"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button color="tertiary" (click)="captureImage()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="danger" (click)="browseImage()">
+      <ion-icon name="folder"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab> -->
+
+</ion-content>

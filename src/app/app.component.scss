@@ -1,0 +1,52 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.myCard {
+    position: relative;
+    margin: 0;
+    width: 100%;
+}
+
+.myOverlay {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    z-index: 99;
+    bottom: 0px;
+    opacity: 0.5;
+    background: #000;
+    color: #fff;
+}
+.item {
+    height: 50px;;
+}
+.userProfile{
+    height: 180px;
+    background-image: url("../assets/profile.jpg");
+    // background-color: #000;
+    position: relative;
+    margin: 0;
+    width: 100%;
+}
+.userPhoto{
+    padding-top: 71px;
+    padding-left: 12px;
+}
+.uName{
+    background-color: #8f92ff; 
+}
+.uNameChar{
+    margin-left: 15px;
+    margin-top: 0px;
+    font-size: 55px;
+   font-family: 'Cinzel'; 
+    color: white;
+
+}
+.userName{
+    color:white;
+    padding-left: 10px;
+   
+}

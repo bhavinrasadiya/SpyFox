@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Label </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!cameraService.isImageCaptured">
+    <ion-grid>
+      <ion-row >
+        <ion-col class="image-col">
+          <ion-img src="assets/label.png"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="label-col">
+          <ion-label>App will try to find some related.</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-img [src]="imageData" class="labelimg" *ngIf="visionData.labelAnnotations"></ion-img>
+
+  <ion-list *ngIf="visionData.labelAnnotations">
+    <ion-item *ngFor="let label of visionData.labelAnnotations">
+      <ion-label>
+        <p>{{label.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" size="small">
+    <ion-fab-button>
+      <ion-icon name="image"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="tertiary" (click)="captureImage()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" (click)="browseImage()">
+        <ion-icon name="folder"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> -->
+</ion-content>

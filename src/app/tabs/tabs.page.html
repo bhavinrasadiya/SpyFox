@@ -1,0 +1,41 @@
+  <ion-slides pager="true" [options]="slideOpts" *ngIf="readLocalStorageValue('slider')== 'True'">
+    <ion-slide class="fSlide">
+      <h1>Slide 1</h1>  
+      <p>Hello Wold I am Keval Patel</p>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+      <ion-button (click)="sliderClose()">
+        Lets Start
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+<ion-tabs *ngIf="readLocalStorageValue('slider')== 'False'">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="face">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Face</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="web">
+      <ion-icon name="globe"></ion-icon>
+      <ion-label>Web</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="label">
+      <ion-icon name="bookmark"></ion-icon>
+      <ion-label>Label</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="text">
+        <ion-icon name="document"></ion-icon>
+        <ion-label>Text</ion-label>
+      </ion-tab-button>
+  </ion-tab-bar>
+  
+  
+</ion-tabs>
