@@ -8,8 +8,34 @@
         </span>
       </ion-col>
     </ion-row>
-    
-      
-    </ion-grid>
+    <ion-row>
+      <ion-col>
+       <p class="profileBack"></p> <img src="../../assets/profile.png" class="profile">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <p class="userName">
+       {{userService.loggedInUser.name}}
+      </p>
+    </ion-row>
+    <ion-row>
+      <p class="Mobile">
+       {{userService.loggedInUser.mobile}}
+      </p>
+    </ion-row>
+  <!-- <ion-list lines="full">
+    <ion-item>
+        <ion-icon name="contact"></ion-icon>
+      <ion-label> {{userService.loggedInUser.name}}</ion-label>
+    </ion-item>
   
-  </ion-content>
+    <ion-item>
+      <ion-label>{{userService.loggedInUser.mobile}}</ion-label>
+    </ion-item>
+  </ion-list> -->
+  
+ 
+  
+ 
+  </ion-grid>
+</ion-content>

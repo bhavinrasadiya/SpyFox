@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingService } from './services/loading.service';
 import { HistoryPage } from './history/history.page';
 import { ProfilePage } from './profile/profile.page';
+import {Network } from '@ionic-native/network';
 @NgModule({
   declarations: [AppComponent, LoginPage, HistoryPage, ProfilePage],
   entryComponents: [LoginPage, HistoryPage, ProfilePage],
@@ -42,7 +43,7 @@ import { ProfilePage } from './profile/profile.page';
     VisionService,
     LoadingService,
     { provide: StorageBucket, useValue: environment.firebase.storageBucket },
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
   ],
   bootstrap: [AppComponent]
 })

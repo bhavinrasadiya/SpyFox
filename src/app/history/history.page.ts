@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
+
+
 
 @Component({
   selector: 'app-history',
@@ -9,7 +11,7 @@ import { UserService } from '../services/user.service';
 })
 export class HistoryPage implements OnInit {
   history: any = [];
-  constructor(private modalCtrl: ModalController, public userService: UserService) { }
+  constructor(private modalCtrl: ModalController,public navCtrl:NavController, public userService: UserService) { }
 
   ngOnInit() {
     this.history = this.userService.loggedInUser.history;

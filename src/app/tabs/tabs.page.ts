@@ -8,6 +8,7 @@ import { UserService } from '../services/user.service';
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
+
 export class TabsPage {
   constructor(
     private platform: Platform,private splashScreen: SplashScreen,private statusBar: StatusBar,  public userService: UserService
@@ -19,13 +20,16 @@ export class TabsPage {
      localStorage.setItem('slider','True');
     }
   }
+
   readLocalStorageValue(key) {
     let value =   localStorage.getItem('slider');
     return value;
   }
   sliderClose()
   {
+    console.log("hello");
     localStorage.setItem('slider','False');
   }
+ 
 
 }

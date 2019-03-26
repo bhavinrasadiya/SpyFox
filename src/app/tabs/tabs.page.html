@@ -1,41 +1,90 @@
-  <ion-slides pager="true" [options]="slideOpts" *ngIf="readLocalStorageValue('slider')== 'True'">
-    <ion-slide class="fSlide">
-      <h1>Slide 1</h1>  
-      <p>Hello Wold I am Keval Patel</p>
+<!-- <ion-slides pager="true" [options]="slideOpts" *ngIf="readLocalStorageValue('slider')== 'True'">
+  <ion-slide class="fSlide">
+    
+
+  </ion-slide>
+  <ion-slide>
+    <h1>Slide 2</h1>
+  </ion-slide>
+  <ion-slide>
+    <h1>Slide 3</h1>
+    <ion-button (click)="sliderClose()">
+      Lets Start
+    </ion-button>
+  </ion-slide>
+</ion-slides> -->
+<ion-content padding *ngIf="readLocalStorageValue('slider')== 'True'">
+  <ion-slides pager #mainslider effect="flip">
+    <ion-slide>
+      <div>
+        <div>
+          <img src="../../assets/firstSlide.png" alt="Image is Not Found">
+        </div>
+        <div>
+          <p class="sliderText">Detect face within an image, along with the associated key facial attributes</p>
+        </div>
+      </div>
     </ion-slide>
     <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
-      <ion-button (click)="sliderClose()">
-        Lets Start
-      </ion-button>
-    </ion-slide>
+        <div>
+          <div>
+            <img src="../../assets/secondSlide.png" alt="Image is Not Found">
+          </div>
+          <div>
+            <p class="sliderText"> Vision API uses the power of Google Image Search to find topical entities like celebrities, logos, or news events.</p>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+          <div>
+            <div>
+              <img src="../../assets/thirdSlide.png" alt="Image is Not Found">
+            </div>
+            <div>
+              <p class="sliderText">Easily detect broad sets of objects in your images.</p>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+            <div>
+              <div>
+                <img src="../../assets/forthSlide.png" alt="Image is Not Found">
+              </div>
+              <div>
+                <p class="sliderText"> Optical Character Recognition (OCR) enables you to detect text within your images, along with automatic language identification. Vision API supports a broad set of languages</p>
+              </div>
+              <div id="mybutton">
+                <a (click)="sliderClose()"  class="feedback">Let's Go >></a>
+              </div>
+            </div>
+          </ion-slide>
   </ion-slides>
-<ion-tabs *ngIf="readLocalStorageValue('slider')== 'False'">
+</ion-content>
+<ion-content *ngIf="readLocalStorageValue('slider')== 'False'">
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="face">
-      <ion-icon name="person"></ion-icon>
-      <ion-label>Face</ion-label>
-    </ion-tab-button>
 
-    <ion-tab-button tab="web">
-      <ion-icon name="globe"></ion-icon>
-      <ion-label>Web</ion-label>
-    </ion-tab-button>
+  <ion-tabs>
 
-    <ion-tab-button tab="label">
-      <ion-icon name="bookmark"></ion-icon>
-      <ion-label>Label</ion-label>
-    </ion-tab-button>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="face">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>Face</ion-label>
+      </ion-tab-button>
 
-    <ion-tab-button tab="text">
+      <ion-tab-button tab="web">
+        <ion-icon name="globe"></ion-icon>
+        <ion-label>Web</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="label">
+        <ion-icon name="bookmark"></ion-icon>
+        <ion-label>Label</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="text">
         <ion-icon name="document"></ion-icon>
         <ion-label>Text</ion-label>
       </ion-tab-button>
-  </ion-tab-bar>
-  
-  
-</ion-tabs>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
